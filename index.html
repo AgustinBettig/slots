@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎰 Bonus Night - Tragaperras de la Discoteca</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <img src="images/logo_speed_apa.png" alt="Speed Logo" class="logo">
+            <p class="subtitle">¡Gira y Gana Premios Increíbles!</p>
+        </header>
+
+        <div class="game-container">
+            <div class="score-board">
+                <div class="score-item">
+                    <span class="label">Puntos:</span>
+                    <span id="score" class="value">1000</span>
+                </div>
+                <div class="score-item">
+                    <span class="label">Último Premio:</span>
+                    <span id="prize" class="value">0</span>
+                </div>
+            </div>
+
+            <div class="slot-machine">
+                <div class="paylines-info">
+                    <span>Línea Activa: <span id="activeLines">1</span> (Solo línea del medio)</span>
+                </div>
+                
+                <div class="reels-container">
+                    <div class="reel" id="reel1">
+                        <div class="symbol">⚡️</div>
+                        <div class="symbol">🚀</div>
+                        <div class="symbol">😎</div>
+                        <div class="symbol">⚡️</div>
+                        <div class="symbol">🚀</div>
+                        <div class="symbol">😎</div>
+                        <div class="symbol">⚡️</div>
+                        <div class="symbol">🚀</div>
+                        <div class="symbol">😎</div>
+                    </div>
+                    <div class="reel" id="reel2">
+                        <div class="symbol">⚡️</div>
+                        <div class="symbol">🚀</div>
+                        <div class="symbol">😎</div>
+                        <div class="symbol">⚡️</div>
+                        <div class="symbol">🚀</div>
+                        <div class="symbol">😎</div>
+                        <div class="symbol">⚡️</div>
+                        <div class="symbol">🚀</div>
+                        <div class="symbol">😎</div>
+                    </div>
+                    <div class="reel" id="reel3">
+                        <div class="symbol">⚡️</div>
+                        <div class="symbol">🚀</div>
+                        <div class="symbol">😎</div>
+                        <div class="symbol">⚡️</div>
+                        <div class="symbol">🚀</div>
+                        <div class="symbol">😎</div>
+                        <div class="symbol">⚡️</div>
+                        <div class="symbol">🚀</div>
+                        <div class="symbol">😎</div>
+                    </div>
+                    <div class="reel" id="reel4">
+                        <div class="symbol">⚡️</div>
+                        <div class="symbol">🚀</div>
+                        <div class="symbol">😎</div>
+                        <div class="symbol">⚡️</div>
+                        <div class="symbol">🚀</div>
+                        <div class="symbol">😎</div>
+                        <div class="symbol">⚡️</div>
+                        <div class="symbol">🚀</div>
+                        <div class="symbol">😎</div>
+                    </div>
+                    <div class="reel" id="reel5">
+                        <div class="symbol">⚡️</div>
+                        <div class="symbol">🚀</div>
+                        <div class="symbol">😎</div>
+                        <div class="symbol">⚡️</div>
+                        <div class="symbol">🚀</div>
+                        <div class="symbol">😎</div>
+                        <div class="symbol">⚡️</div>
+                        <div class="symbol">🚀</div>
+                        <div class="symbol">😎</div>
+                    </div>
+                </div>
+                
+                <div class="paylines">
+                    <div class="payline" id="payline1"></div>
+                    <div class="payline" id="payline2"></div>
+                    <div class="payline" id="payline3"></div>
+                    <div class="payline" id="payline4"></div>
+                    <div class="payline" id="payline5"></div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button id="spinBtn" class="spin-btn">
+                    <span class="spin-text">GIRAR</span>
+                    <div class="spin-glow"></div>
+                </button>
+            </div>
+
+            <div class="prizes-info">
+                <h3>🎁 Tabla de Pagos</h3>
+                <div class="paytable">
+                    <div class="paytable-section">
+                        <h4>🎰 Tabla de Premios</h4>
+                        <div class="prize-item">5 latas Iguales = 1000 puntos + JACKPOT!</div>
+                        <div class="prize-item">4 latas Iguales = 200 puntos + Llavero Gratis</div>
+                        <div class="prize-item">3 latas Iguales = 50 puntos + Sticker Gratis</div>
+                    </div>
+                    <div class="paytable-section">
+                        <h4>🚀 Símbolos</h4>
+                        <div class="prize-item">Cualquier lata x3 = Premio Bajo</div>
+                        <div class="prize-item">Cualquier lata x4 = Premio Medio</div>
+                        <div class="prize-item">Cualquier lata x5 = Premio Alto</div>
+                    </div>
+                    <div class="paytable-section">
+                        <h4>🎯 Cómo Ganar</h4>
+                        <div class="prize-item">Solo cuenta la línea del medio</div>
+                        <div class="prize-item">Mínimo 3 símbolos consecutivos</div>
+                        <div class="prize-item">¡No importa cuál símbolo!</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="winModal" class="modal">
+            <div class="modal-content">
+                <h2 id="winTitle">¡FELICIDADES!</h2>
+                <p id="winMessage">Has ganado un premio increíble</p>
+                <div id="winPrize" class="win-prize"></div>
+                <button id="closeModal" class="close-btn">Continuar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
